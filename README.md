@@ -1,0 +1,13 @@
+1.基础语法（结合数据结构知识，深入研究下集合类源码）
+2.JavaWeb开发基础（包括html,css,js,servlet,filter,listener,interceptor,cookie,session）
+3.Spring,Mybatis,Springmvc
+4.mysql数据库（基本增删改查，索引相关，事务相关，锁相关）
+5.redis等nosql数据库
+6.自己写一个项目，要做好总结，最好能支持横向扩展的
+以上基本是你必须准备的，如果还有时间就学下下面的：
+7.SpringCloud，Dubbo相关微服务体系
+8.深入理解JVM
+9.设计模式
+10.市面上流行的中间件
+11.读Spring源码
+12.容器编排相关
