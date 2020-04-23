@@ -1,0 +1,22 @@
+资源导出错误问题，在maven中的pom.xml中配置
+        <build>
+            <!--配置resource防止资源导出失败ExceptionInInitializerError-->
+            <resources>
+              <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                 <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                     </includes>
+                    <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>src/main/java</directory>
+                  <includes>
+                   <include>**/*.properties</include>
+                   <include>**/*.xml</include>
+                  </includes>
+                 <filtering>true</filtering>
+               </resource>
+            </resources>
+        </build>
