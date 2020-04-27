@@ -1,0 +1,52 @@
+spring.xml
+<!--注解适配器 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+<!--    映射-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+<!--    中央控制适配器-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+<!--    配置Controller-->
+    <bean id="/hello" class="com.study.controller.HelloSpringMVC"/>
+
+    <!--配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--        前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/" />
+<!--        后缀-->
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+    
+    web.xml
+    !--    配置Spring控制器-->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:Spring-config.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    .java
+    // 导入Controller接口
+public class HelloSpringMVC implements Controller {
+    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        // 模型和视图
+        ModelAndView modelAndView = new ModelAndView();
+        // 封装对象
+        modelAndView.addObject("msg","HelloSpringMVC");
+        // 封装要跳转的视图，放到modelAndView中
+        modelAndView.setViewName("Hello");
+
+        return modelAndView;
+    }
+}
